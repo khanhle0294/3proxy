@@ -42,14 +42,11 @@ setuid 65535
 stacksize 6291456 
 flush
 
-$(awk -F "/" '{print "allow * <Your_IP>\n" \
-"proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
+$(awk -F "/" '{print "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
 
-EOF
-}
 
 gen_proxy_file_for_user() {
     cat >proxy.txt <<EOF
